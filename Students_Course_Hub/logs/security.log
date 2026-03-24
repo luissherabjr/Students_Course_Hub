@@ -1,0 +1,103 @@
+[2026-03-14 10:15:45] IP: ::1 - Logout - Username: admin
+[2026-03-14 10:16:02] IP: ::1 - Successful login - Username: admin, Role: admin
+[2026-03-14 10:16:09] IP: ::1 - Logout - Username: admin
+[2026-03-14 10:17:19] IP: ::1 - Successful login - Username: admin, Role: admin
+[2026-03-14 10:17:24] IP: ::1 - Logout - Username: admin
+[2026-03-14 10:17:28] IP: ::1 - Successful login - Username: admin, Role: admin
+[2026-03-14 10:33:58] IP: ::1 - User: admin - Logout - Username: admin
+[2026-03-14 10:34:01] IP: ::1 - User: admin - Successful login - Role: admin
+[2026-03-14 10:34:06] IP: ::1 - User: admin - Logout - Username: admin
+[2026-03-14 10:34:27] IP: ::1 - User: ajohnson - Successful login - Role: staff
+[2026-03-14 10:35:55] IP: ::1 - User: ajohnson - Logout - Username: ajohnson
+[2026-03-14 10:35:57] IP: ::1 - User: ajohnson - Successful login - Role: staff
+[2026-03-14 10:35:59] IP: ::1 - User: ajohnson - Logout - Username: ajohnson
+[2026-03-14 10:36:03] IP: ::1 - User: admin - Successful login - Role: admin
+[2026-03-14 10:36:11] IP: ::1 - User: admin - Logout - Username: admin
+[2026-03-20 11:02:43] IP: ::1 - User: admin - Successful login - Role: admin
+[2026-03-20 11:03:11] IP: ::1 - User: admin - Logout - Username: admin
+[2026-03-20 11:03:14] IP: ::1 - User: admin - Successful login - Role: admin
+[2026-03-20 11:08:30] IP: ::1 - User: admin - Logout - Username: admin
+[2026-03-20 11:08:33] IP: ::1 - User: admin - Successful login - Role: admin
+[2026-03-20 11:08:35] IP: ::1 - User: admin - Logout - Username: admin
+[2026-03-20 11:08:49] IP: ::1 - User: guest - Failed login - Username not found: ajohson
+[2026-03-20 11:09:03] IP: ::1 - User: ajohnson - Successful login - Role: staff
+[2026-03-20 11:10:19] IP: ::1 - User: ajohnson - Logout - Username: ajohnson
+[2026-03-20 11:10:30] IP: ::1 - User: admin - Successful login - Role: admin
+[2026-03-20 11:41:21] IP: ::1 - User: admin - Successful login - Role: admin
+[2026-03-20 12:01:36] IP: ::1 - User: admin - New user created: Luis123 (admin)
+[2026-03-20 12:02:01] IP: ::1 - User: admin - Password reset for user ID: 4
+[2026-03-20 12:02:51] IP: ::1 - User: admin - Password reset for user ID: 4
+[2026-03-20 12:09:12] IP: ::1 - User: admin - User updated: Luis123 (ID: 4)
+[2026-03-20 12:15:12] IP: ::1 - User: admin - Password reset for user ID: 4
+[2026-03-20 12:15:20] IP: ::1 - User: admin - Logout - Username: admin
+[2026-03-20 12:15:37] IP: ::1 - User: Luis123 - Successful login - Role: admin - User: Luis123
+[2026-03-20 12:17:23] IP: ::1 - User: Luis123 - Password changed for user: Luis123
+[2026-03-20 12:17:39] IP: ::1 - User: Luis123 - Successful login - Role: admin - User: Luis123
+[2026-03-20 12:18:16] IP: ::1 - User: Luis123 - Logout - Username: Luis123
+[2026-03-20 12:18:33] IP: ::1 - User: Luis123 - Successful login - Role: admin - User: Luis123
+[2026-03-20 12:18:50] IP: ::1 - User: Luis123 - Logout - Username: Luis123
+[2026-03-20 12:19:02] IP: ::1 - User: admin - Successful login - Role: admin - User: admin
+[2026-03-20 12:20:11] IP: ::1 - User: admin - Logout - Username: admin
+[2026-03-20 12:20:18] IP: ::1 - User: admin - Successful login - Role: admin - User: admin
+[2026-03-20 12:21:19] IP: ::1 - User: admin - New user created: tek26 (staff)
+[2026-03-20 12:21:24] IP: ::1 - User: admin - Logout - Username: admin
+[2026-03-20 12:21:37] IP: ::1 - User: tek26 - Successful login - Role: staff - User: tek26
+[2026-03-23 17:27:19] IP: ::1 - User: admin - Successful login - Role: admin - User: admin
+[2026-03-23 17:45:28] IP: ::1 - User: admin - Logout - Username: admin
+[2026-03-23 17:45:33] IP: ::1 - User: blee - Successful login - Role: staff - User: blee
+[2026-03-23 18:02:20] IP: ::1 - User: blee - Logout - Username: blee
+[2026-03-23 18:02:24] IP: ::1 - User: admin - Successful login - Role: admin
+[2026-03-23 18:29:26] IP: ::1 - User: admin - Logout - Username: admin
+[2026-03-23 18:29:38] IP: ::1 - User: guest - Failed login - Invalid password for: admin
+[2026-03-23 18:29:40] IP: ::1 - User: guest - Failed login - Invalid password for: admin
+[2026-03-23 18:29:42] IP: ::1 - User: guest - Failed login - Invalid password for: admin
+[2026-03-23 18:29:42] IP: ::1 - User: guest - Failed login - Invalid password for: admin
+[2026-03-23 18:29:43] IP: ::1 - User: guest - Failed login - Invalid password for: admin
+[2026-03-23 18:40:40] IP: ::1 - User: guest - Password upgraded to hash for user: admin
+[2026-03-23 18:40:40] IP: ::1 - User: admin - Successful login - Role: admin
+[2026-03-23 18:40:46] IP: ::1 - User: admin - Logout - Username: admin
+[2026-03-23 18:40:50] IP: ::1 - User: admin - Successful login - Role: admin
+[2026-03-23 18:41:44] IP: ::1 - User: admin - Successful login - Role: admin
+[2026-03-23 19:38:20] IP: ::1 - User: admin - Successful login - Role: admin
+[2026-03-23 19:39:21] IP: ::1 - User: admin - Successful login - Role: admin
+[2026-03-23 19:39:44] IP: ::1 - User: admin - Logout - Username: admin
+[2026-03-23 19:39:47] IP: ::1 - User: admin - Successful login - Role: admin
+[2026-03-23 19:40:08] IP: ::1 - User: admin - Logout - Username: admin
+[2026-03-23 19:40:28] IP: ::1 - User: guest - Password upgraded to hash for user: tek26
+[2026-03-23 19:40:28] IP: ::1 - User: tek26 - Successful login - Role: staff
+[2026-03-24 06:17:26] IP: ::1 - User: admin - Successful login - Role: admin
+[2026-03-24 06:17:38] IP: ::1 - User: admin - Logout - Username: admin
+[2026-03-24 06:17:44] IP: ::1 - User: guest - Password upgraded to hash for user: ajohnson
+[2026-03-24 06:17:44] IP: ::1 - User: ajohnson - Successful login - Role: staff
+[2026-03-24 06:18:02] IP: ::1 - User: ajohnson - Logout - Username: ajohnson
+[2026-03-24 06:18:06] IP: ::1 - User: admin - Successful login - Role: admin
+[2026-03-24 06:50:23] IP: ::1 - User: admin - New user created: Sujan26G (staff)
+[2026-03-24 06:50:48] IP: ::1 - User: admin - Logout - Username: admin
+[2026-03-24 06:50:56] IP: ::1 - User: guest - Failed login - Invalid password for: Sujan26G
+[2026-03-24 06:51:08] IP: ::1 - User: guest - Failed login - Invalid password for: Sujan26G
+[2026-03-24 06:51:11] IP: ::1 - User: admin - Successful login - Role: admin
+[2026-03-24 06:57:03] IP: ::1 - User: admin - Staff added: Sujan Ghimire
+[2026-03-24 06:57:31] IP: ::1 - User: admin - User updated: Sujan26G (ID: 6)
+[2026-03-24 06:57:36] IP: ::1 - User: admin - Logout - Username: admin
+[2026-03-24 06:57:55] IP: ::1 - User: Sujan26G - Successful login - Role: staff
+[2026-03-24 07:09:05] IP: ::1 - User: Sujan26G - Logout - Username: Sujan26G
+[2026-03-24 07:09:09] IP: ::1 - User: admin - Successful login - Role: admin
+[2026-03-24 07:10:17] IP: ::1 - User: admin - Programme updated: BSc in Business Management
+[2026-03-24 07:13:10] IP: ::1 - User: admin - Programme added: BSc in Web development
+[2026-03-24 07:28:47] IP: ::1 - User: admin - Logout - Username: admin
+[2026-03-24 07:28:53] IP: ::1 - User: Sujan26G - Successful login - Role: staff
+[2026-03-24 07:45:24] IP: ::1 - User: Sujan26G - Logout - Username: Sujan26G
+[2026-03-24 07:45:29] IP: ::1 - User: admin - Successful login - Role: admin
+[2026-03-24 07:47:38] IP: ::1 - User: admin - Staff updated: Dr. Luis Sherab Jr.
+[2026-03-24 07:49:40] IP: ::1 - User: admin - Logout - Username: admin
+[2026-03-24 07:49:52] IP: ::1 - User: admin - Successful login - Role: admin
+[2026-03-24 07:51:15] IP: ::1 - User: admin - Staff updated: Sujan Ghimire
+[2026-03-24 07:53:00] IP: ::1 - User: admin - New user created: luis11D (staff)
+[2026-03-24 07:54:04] IP: ::1 - User: admin - Staff updated: Luis
+[2026-03-24 07:55:58] IP: ::1 - User: admin - Programme updated: BSc in Web development
+[2026-03-24 07:56:44] IP: ::1 - User: admin - Module updated: Introduction to Programming
+[2026-03-24 07:56:48] IP: ::1 - User: admin - Logout - Username: admin
+[2026-03-24 07:56:52] IP: ::1 - User: Sujan26G - Successful login - Role: staff
+[2026-03-24 08:47:56] IP: ::1 - User: admin - Successful login - Role: admin
+[2026-03-24 08:48:39] IP: ::1 - User: admin - Logout - Username: admin
+[2026-03-24 08:48:43] IP: ::1 - User: Sujan26G - Successful login - Role: staff
