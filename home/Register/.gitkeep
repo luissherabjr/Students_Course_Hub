@@ -1,1 +1,238 @@
-This files contains registration form system.
+This is TEK BAHADUR'S COMPLETE HOMEPAGE AND REGISTRATION FROM. This is the Database I or we have used for developing this project. 
+
+-- ============================================
+-- STUDENT COURSE HUB - COMPLETE DATABASE
+-- Run this file directly in phpMyAdmin
+-- Database name: student_course_hub
+-- ============================================
+
+DROP DATABASE IF EXISTS student_course_hub;
+CREATE DATABASE student_course_hub;
+USE student_course_hub;
+
+-- ============================================
+-- DROP TABLES (if they exist)
+-- ============================================
+
+DROP TABLE IF EXISTS InterestedStudents;
+DROP TABLE IF EXISTS ProgrammeModules;
+DROP TABLE IF EXISTS AdminUsers;
+DROP TABLE IF EXISTS Programmes;
+DROP TABLE IF EXISTS Modules;
+DROP TABLE IF EXISTS Staff;
+DROP TABLE IF EXISTS Levels;
+
+-- ============================================
+-- CREATE TABLES
+-- ============================================
+
+-- Levels Table (Undergraduate/Postgraduate)
+CREATE TABLE Levels (
+    LevelID INT PRIMARY KEY,
+    LevelName VARCHAR(50) NOT NULL
+);
+
+-- Staff Table (with complete staff information)
+CREATE TABLE Staff (
+    StaffID INT PRIMARY KEY,
+    Name VARCHAR(100) NOT NULL,
+    Title VARCHAR(100),
+    Bio TEXT,
+    Department VARCHAR(100),
+    Photo VARCHAR(255),
+    Email VARCHAR(100)
+);
+
+-- Modules Table
+CREATE TABLE Modules (
+    ModuleID INT PRIMARY KEY,
+    ModuleName VARCHAR(150) NOT NULL,
+    ModuleLeaderID INT,
+    Description TEXT,
+    Image VARCHAR(255),
+    ImageAlt TEXT,
+    Status ENUM('active','inactive') DEFAULT 'active',
+    CreatedAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    UpdatedAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    FOREIGN KEY (ModuleLeaderID) REFERENCES Staff(StaffID)
+);
+
+-- Programmes Table
+CREATE TABLE Programmes (
+    ProgrammeID INT PRIMARY KEY AUTO_INCREMENT,
+    ProgrammeName VARCHAR(150) NOT NULL,
+    LevelID INT,
+    ProgrammeLeaderID INT,
+    Description TEXT,
+    Image VARCHAR(255),
+    ImageAlt TEXT,
+    Status ENUM('published','draft') DEFAULT 'draft',
+    CreatedAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    UpdatedAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    FOREIGN KEY (LevelID) REFERENCES Levels(LevelID),
+    FOREIGN KEY (ProgrammeLeaderID) REFERENCES Staff(StaffID)
+);
+
+-- Programme Modules (Links modules to programmes with year)
+CREATE TABLE ProgrammeModules (
+    ProgrammeModuleID INT PRIMARY KEY AUTO_INCREMENT,
+    ProgrammeID INT,
+    ModuleID INT,
+    Year INT,
+    FOREIGN KEY (ProgrammeID) REFERENCES Programmes(ProgrammeID),
+    FOREIGN KEY (ModuleID) REFERENCES Modules(ModuleID)
+);
+
+-- Interested Students Table (with academic qualification)
+CREATE TABLE InterestedStudents (
+    InterestID INT AUTO_INCREMENT PRIMARY KEY,
+    ProgrammeID INT NOT NULL,
+    StudentName VARCHAR(100) NOT NULL,
+    AcademicQualification VARCHAR(50) DEFAULT NULL,
+    Email VARCHAR(255) NOT NULL,
+    ReceiveUpdates ENUM('yes','no') DEFAULT 'no',
+    RegisteredAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    Status ENUM('active','withdrawn') DEFAULT 'active',
+    WithdrawnAt TIMESTAMP NULL,
+    FOREIGN KEY (ProgrammeID) REFERENCES Programmes(ProgrammeID) ON DELETE CASCADE,
+    UNIQUE (Email, ProgrammeID)
+);
+
+-- Admin Users Table (for login)
+CREATE TABLE AdminUsers (
+    AdminID INT PRIMARY KEY AUTO_INCREMENT,
+    Username VARCHAR(50) UNIQUE NOT NULL,
+    Password VARCHAR(255) NOT NULL,
+    FullName VARCHAR(100) NOT NULL,
+    Email VARCHAR(100) NOT NULL,
+    Role ENUM('admin','staff') DEFAULT 'staff',
+    StaffID INT NULL,
+    IsActive TINYINT DEFAULT 1,
+    CreatedAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (StaffID) REFERENCES Staff(StaffID) ON DELETE SET NULL
+);
+
+-- ============================================
+-- SEED DATA
+-- ============================================
+
+-- Levels
+INSERT INTO Levels VALUES
+(1,'Undergraduate'),
+(2,'Postgraduate');
+
+-- Staff
+INSERT INTO Staff (StaffID, Name, Title, Department, Email) VALUES
+(1,'Dr. Alice Johnson','Professor of Computer Science','Computing','alice.johnson@university.ac.uk'),
+(2,'Dr. Brian Lee','Associate Professor','Mathematics','brian.lee@university.ac.uk'),
+(3,'Dr. Carol White','Senior Lecturer','Computer Engineering','carol.white@university.ac.uk'),
+(4,'Dr. David Green','Lecturer','Software Engineering','david.green@university.ac.uk'),
+(5,'Dr. Emma Scott','Senior Lecturer','Data Science','emma.scott@university.ac.uk'),
+(6,'Dr. Frank Moore','Lecturer','Cyber Security','frank.moore@university.ac.uk'),
+(7,'Dr. Grace Adams','Professor','AI and Machine Learning','grace.adams@university.ac.uk'),
+(8,'Dr. Henry Clark','Senior Lecturer','Networks','henry.clark@university.ac.uk'),
+(9,'Dr. Irene Hall','Professor','Database Systems','irene.hall@university.ac.uk'),
+(10,'Dr. James Wright','Lecturer','Web Development','james.wright@university.ac.uk'),
+(11,'Dr. Sophia Miller','Professor','Machine Learning','sophia.miller@university.ac.uk'),
+(12,'Dr. Benjamin Carter','Senior Lecturer','Cyber Security','benjamin.carter@university.ac.uk'),
+(13,'Dr. Chloe Thompson','Lecturer','Data Analytics','chloe.thompson@university.ac.uk'),
+(14,'Dr. Daniel Robinson','Professor','AI Ethics','daniel.robinson@university.ac.uk'),
+(15,'Dr. Emily Davis','Senior Lecturer','Software Engineering','emily.davis@university.ac.uk'),
+(16,'Dr. Nathan Hughes','Lecturer','Cloud Computing','nathan.hughes@university.ac.uk'),
+(17,'Dr. Olivia Martin','Professor','Quantum Computing','olivia.martin@university.ac.uk'),
+(18,'Dr. Samuel Anderson','Senior Lecturer','Cyber Law','samuel.anderson@university.ac.uk'),
+(19,'Dr. Victoria Hall','Lecturer','Human-Computer Interaction','victoria.hall@university.ac.uk'),
+(20,'Dr. William Scott','Professor','Blockchain','william.scott@university.ac.uk');
+
+-- Modules
+INSERT INTO Modules (ModuleID, ModuleName, ModuleLeaderID, Description, Status) VALUES
+(1,'Introduction to Programming',1,'Covers the fundamentals of programming using Python and Java. Learn variables, loops, functions, and object-oriented programming concepts.','active'),
+(2,'Mathematics for Computer Science',2,'Teaches discrete mathematics, linear algebra, and probability theory. Essential for algorithms, cryptography, and data science.','active'),
+(3,'Computer Systems & Architecture',3,'Explores CPU design, memory management, and assembly language. Understanding how computers work at hardware level.','active'),
+(4,'Databases',4,'Covers SQL, relational database design, and NoSQL systems. Students learn to design and implement database solutions.','active'),
+(5,'Software Engineering',5,'Focuses on agile development, design patterns, and project management. Students work on group projects using industry practices.','active'),
+(6,'Algorithms & Data Structures',6,'Examines sorting, searching, graphs, and complexity analysis. Develops problem-solving and optimization skills.','active'),
+(7,'Cyber Security Fundamentals',7,'Provides introduction to network security, cryptography, and vulnerabilities. Learn to protect systems from threats.','active'),
+(8,'Artificial Intelligence',8,'Introduces AI concepts such as neural networks, expert systems, and robotics. Explore machine learning foundations.','active'),
+(9,'Machine Learning',9,'Explores supervised and unsupervised learning, including decision trees and clustering. Hands-on projects with real datasets.','active'),
+(10,'Ethical Hacking',10,'Covers penetration testing, security assessments, and cybersecurity laws. Learn to identify and fix security flaws.','active');
+
+-- Programmes
+INSERT INTO Programmes (ProgrammeName, LevelID, ProgrammeLeaderID, Description, Status) VALUES
+('BSc Computer Science',1,1,'A broad computer science degree covering programming, AI, cybersecurity, and software engineering. Provides strong foundation for IT careers.','published'),
+('BSc Software Engineering',1,2,'A specialized degree focusing on the development and lifecycle of software applications. Emphasis on agile methodologies and team projects.','published'),
+('BSc Artificial Intelligence',1,3,'Focuses on machine learning, deep learning, and AI applications. Prepare for careers in AI research and development.','published'),
+('BSc Cyber Security',1,4,'Explores network security, ethical hacking, and digital forensics. Train to become a cybersecurity professional.','published'),
+('BSc Data Science',1,5,'Covers big data, machine learning, and statistical computing. Learn to extract insights from complex datasets.','published'),
+('MSc Machine Learning',2,11,'A postgraduate degree focusing on deep learning, AI ethics, and neural networks. Advanced research-oriented programme.','published'),
+('MSc Cyber Security',2,12,'A specialized programme covering digital forensics, cyber threat intelligence, and security policy. Industry-focused curriculum.','published'),
+('MSc Data Science',2,13,'Focuses on big data analytics, cloud computing, and AI-driven insights. Prepare for leadership roles in data analytics.','published'),
+('MSc Artificial Intelligence',2,14,'Explores autonomous systems, AI ethics, and deep learning technologies. Research-focused programme with industry projects.','published'),
+('MSc Software Engineering',2,15,'Emphasizes software design, blockchain applications, and cutting-edge methodologies. Advanced software development skills.','published');
+
+-- Programme Modules (Links modules to programmes with year)
+INSERT INTO ProgrammeModules (ProgrammeID, ModuleID, Year) VALUES
+-- BSc Computer Science (ProgrammeID 1)
+(1,1,1), (1,2,1), (1,3,2), (1,4,2), (1,5,3),
+-- BSc Software Engineering (ProgrammeID 2)
+(2,1,1), (2,2,1), (2,3,2), (2,4,2), (2,5,3),
+-- BSc Artificial Intelligence (ProgrammeID 3)
+(3,1,1), (3,2,1), (3,8,2), (3,9,2), (3,6,3),
+-- BSc Cyber Security (ProgrammeID 4)
+(4,1,1), (4,2,1), (4,7,2), (4,10,2), (4,3,3),
+-- BSc Data Science (ProgrammeID 5)
+(5,1,1), (5,2,1), (5,4,2), (5,6,2), (5,9,3),
+-- MSc Machine Learning (ProgrammeID 6)
+(6,8,1), (6,9,1), (6,6,1),
+-- MSc Cyber Security (ProgrammeID 7)
+(7,7,1), (7,10,1),
+-- MSc Data Science (ProgrammeID 8)
+(8,4,1), (8,6,1), (8,9,1),
+-- MSc Artificial Intelligence (ProgrammeID 9)
+(9,8,1), (9,9,1),
+-- MSc Software Engineering (ProgrammeID 10)
+(10,5,1), (10,6,1);
+
+-- Interested Students (Sample registrations with academic qualifications)
+INSERT INTO InterestedStudents (ProgrammeID, StudentName, AcademicQualification, Email, ReceiveUpdates, Status) VALUES
+(1,'John Doe','Bachelor','john.doe@example.com','yes','active'),
+(1,'Jane Smith','Master','jane.smith@example.com','yes','active'),
+(2,'Michael Brown','Bachelor','michael.brown@example.com','no','active'),
+(3,'Sarah Wilson','High School','sarah.wilson@example.com','yes','active'),
+(4,'David Lee','Undergraduate','david.lee@example.com','yes','active'),
+(5,'Emma Taylor','Bachelor','emma.taylor@example.com','no','active'),
+(6,'James Anderson','Master','james.anderson@example.com','yes','active'),
+(7,'Maria Garcia','Bachelor','maria.garcia@example.com','yes','active'),
+(8,'Robert Martinez','Master','robert.martinez@example.com','no','active'),
+(9,'Lisa Johnson','Bachelor','lisa.johnson@example.com','yes','active'),
+(10,'William Davis','High School','william.davis@example.com','yes','active'),
+(3,'Tek Bahadur Dangi','Bachelor','bahadurdangitek@gmail.com','yes','active');
+
+-- Admin Users (Hashed passwords: admin123, staff123)
+-- Note: These are bcrypt hashed passwords
+INSERT INTO AdminUsers (Username, Password, FullName, Email, Role, StaffID, IsActive) VALUES
+('admin','$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi','System Administrator','admin@university.ac.uk','admin',1,1),
+('ajohnson','$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi','Dr Alice Johnson','a.johnson@university.ac.uk','staff',1,1),
+('blee','$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi','Dr Brian Lee','b.lee@university.ac.uk','staff',2,1);
+
+-- ============================================
+-- INDEXES (for better performance)
+-- ============================================
+
+CREATE INDEX idx_programmes_level ON Programmes(LevelID);
+CREATE INDEX idx_programmes_status ON Programmes(Status);
+CREATE INDEX idx_modules_leader ON Modules(ModuleLeaderID);
+CREATE INDEX idx_modules_status ON Modules(Status);
+CREATE INDEX idx_interested_email ON InterestedStudents(Email);
+CREATE INDEX idx_interested_status ON InterestedStudents(Status);
+
+-- ============================================
+-- FULLTEXT INDEX (for searching)
+-- ============================================
+
+CREATE FULLTEXT INDEX idx_programmes_search ON Programmes(ProgrammeName, Description);
+CREATE FULLTEXT INDEX idx_modules_search ON Modules(ModuleName, Description);
+
+-- ============================================
+-- DONE!
+-- ============================================
